@@ -1,7 +1,7 @@
 let tasks = ['', '', '', '', '', '', '', '', ''];
 let now = new moment();
 
-//hour is timbeblock ID + 9;
+//hour is time block ID + 9;
 
 
 // on click of the p element, turn it into a textarea
@@ -30,7 +30,7 @@ $(".time-block .saveBtn").on("click", function() {
         .closest('.time-block')
         .index();
 
-    // save updated task to SSOT
+    // save updated task to Local Storage
     tasks[hour] = textInput;
     saveTasks();
 
@@ -44,7 +44,7 @@ $(".time-block .saveBtn").on("click", function() {
 /* 
 // Set an interval to auto update task classes for past-present-future
 setInterval(() => {
-    $('.timeblock').each( (index, el) =>{
+    $('.time-block').each( (index, el) =>{
         auditTask(el);
     });
 }, ((1000* 60) * 30));
@@ -59,8 +59,9 @@ auditTask = (element) => {
     * if evalTime is positive, block is in the future.
     * Set coloring tasks appropriately
     **/
-   let elemID = element.id;
+    let elemID = element.id;
     let timeEval = 9 + parseInt(elemID, 10) - moment().hour();
+    
     if(timeEval < 0){
         $("#"+ elemID).addClass("past");
     } else if(timeEval === 0){
@@ -76,6 +77,7 @@ loadTasks = () => {
 
     $('.time-block').each( (index, el) =>{
         el.querySelector("p").innerHTML = tasks[index];
+        
         auditTask(el);
     });
 
