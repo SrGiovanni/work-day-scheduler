@@ -13,7 +13,7 @@ Press the blue save button to save the tasks
 
 ## Screenshots
 
-<img scr="./assets/images/screenshoot1.PNG" title="Current state of the app" style="max-height: 300px;">
+<img src="./assets/images/screenshoot1.PNG" alt="" style="max-height: 300px;">
 
 ## Link to App
 
