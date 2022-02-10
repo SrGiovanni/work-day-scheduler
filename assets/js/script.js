@@ -73,10 +73,18 @@ auditTask = (element) => {
 
 // load tasks function
 loadTasks = () => {
-    tasks = JSON.parse( localStorage.getItem("tasks") );
+    let savedtasks = JSON.parse( localStorage.getItem("tasks") );
+
+    if(savedtasks){
+        tasks = savedtasks;
+    }
 
     $('.time-block').each( (index, el) =>{
-        el.querySelector("p").innerHTML = tasks[index];
+        let taskText = tasks[index];
+        if(!taskText){
+            taskText = "";
+        }
+        el.querySelector("p").innerHTML = taskText;
         
         auditTask(el);
     });
